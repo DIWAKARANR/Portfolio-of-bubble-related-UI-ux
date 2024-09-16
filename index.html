@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwakaran  R- Animated Portfolio</title>
+    <style>
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            animation: float 6s ease-in-out infinite;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+            color: white;
+        }
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        button.active {
+            background-color: white;
+            color: #23a6d5;
+        }
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s;
+        }
+        section.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+        .skill {
+            display: inline-block;
+            background-color: #23a6d5;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+        .skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .project {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        .project:hover {
+            transform: translateX(10px);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation" id="bubbles"></div>
+    <div class="container">
+        <header>
+            <h1>Diwakaran R</h1>
+            <p>Frontend Developer & AI/ML Enthusiast</p>
+        </header>
+
+        <nav>
+            <button onclick="showSection('about')" class="active">About</button>
+            <button onclick="showSection('skills')">Skills</button>
+            <button onclick="showSection('projects')">Projects</button>
+        </nav>
+
+        <main>
+            <section id="about" class="active">
+                <h2>About Me</h2>
+                <p>I'm a passionate frontend developer & AI/ML Enthusiast with 4 months  of experience creating beautiful and functional web applications. I love turning complex problems into simple, intuitive designs that delight users.</p>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <div>
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">React</span>
+                    <span class="skill">AI and ML</span>
+                    <span class="skill">MS Excel</span>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="project">
+                    <h3>Star shaped analog clock </h3>
+                    <p>Developed  a star shaped clock using html, css and javascript</p>
+                </div>
+                <div class="project">
+                    <h3>Scientific calculator</h3>
+                    <p>Created a scientific calculator using html, css and javascript </p>
+                </div>
+                <div class="project">
+                    <h3>Portfolio Website</h3>
+                    <p>Designed and developed a various types of personal portfolio website using html, css and javascript</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Diwakaran R. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            selectedSection.style.animation = 'none';
+            selectedSection.offsetHeight; // Trigger reflow
+            selectedSection.style.animation = null;
+            selectedSection.style.animationName = sectionId === 'about' ? 'slideInLeft' : 'slideInRight';
+            selectedSection.style.animationDuration = '0.5s';
+            
+            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+        }
+
+        // Create floating bubbles
+        function createBubbles() {
+            const bubbles = document.getElementById('bubbles');
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.top = `${Math.random() * 100}%`;
+                bubble.style.width = `${Math.random() * 50 + 10}px`;
+                bubble.style.height = bubble.style.width;
+                bubble.style.animationDuration = `${Math.random() * 4 + 2}s`;
+                bubble.style.animationDelay = `${Math.random() * 2}s`;
+                bubbles.appendChild(bubble);
+            }
+        }
+
+        createBubbles();
+    </script>
+</body>
+</html>
